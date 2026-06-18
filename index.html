@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- NOMBRE PROVISORIO: cambialo cuando definas la marca -->
+<title>Finanzas para Todos</title>
+<style>
+  :root{
+    --bg:#0b1220;--card:#151f33;--card2:#1f2c45;--txt:#e8eef7;--muted:#93a4bd;
+    --accent:#4cc9f0;--green:#3ddc91;--red:#ff6b6b;--gold:#f5c542;--line:#2e3d59;
+    --c1:#4cc9f0;--c2:#3ddc91;--c3:#f5c542;--c4:#ff6b6b;--c5:#b18cff;--c6:#ff9f59;
+  }
+  *{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  body{margin:0;background:var(--bg);color:var(--txt);line-height:1.55}
+  .wrap{max-width:860px;margin:0 auto;padding:18px}
+  header.top{text-align:center;padding:26px 0 10px}
+  header.top h1{font-size:2rem;margin:0}
+  header.top p{color:var(--muted);margin:4px 0 0}
+  .disc{background:#3a2606;color:#fde08a;border:1px solid #946c12;border-radius:10px;padding:9px 13px;font-size:.8rem;margin:14px 0}
+  .card{background:var(--card);border-radius:16px;padding:20px;margin:0 0 18px;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+  h2{font-size:1.25rem;margin:0 0 4px;display:flex;align-items:center;gap:8px}
+  .updated{color:var(--muted);font-size:.72rem;margin:0 0 14px}
+  .news p{margin:0 0 12px}
+  .news .topic{font-weight:700;color:var(--accent)}
+  .watch{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
+  @media(max-width:620px){.watch{grid-template-columns:repeat(2,1fr)}}
+  .tick{background:var(--card2);border-radius:12px;padding:12px}
+  .tick .nm{font-size:.78rem;color:var(--muted)}
+  .tick .pr{font-size:1.18rem;font-weight:700;margin:2px 0}
+  .tick .ch{font-size:.85rem;font-weight:600}
+  .up{color:var(--green)}.down{color:var(--red)}.flat{color:var(--muted)}
+  .law{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+  .law:last-child{border-bottom:none}
+  .law .n{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#3a2606;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .law .t b{color:var(--gold)}
+  .law .t small{color:var(--muted);display:block;margin-top:2px}
+  label{display:block;font-size:.78rem;color:var(--muted);margin:0 0 3px}
+  input,select{width:100%;padding:9px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card2);color:var(--txt);font-size:.92rem}
+  .grid{display:grid;gap:10px}
+  .g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:620px){.g4,.g3{grid-template-columns:1fr 1fr}}
+  button.btn{cursor:pointer;border:none;border-radius:8px;padding:10px 16px;font-weight:700;background:var(--accent);color:#04222e;margin-top:12px}
+  button.btn:hover{filter:brightness(1.1)}
+  .result{background:var(--card2);border-radius:10px;padding:14px;margin-top:14px}
+  .result .lbl{color:var(--muted);font-size:.8rem}
+  .result .big{font-size:1.7rem;font-weight:800;color:var(--green)}
+  .row2{display:flex;justify-content:space-between;margin-top:6px;font-size:.9rem}
+  .row2 span:last-child{font-weight:600}
+  .hint{font-size:.74rem;color:var(--muted);margin-top:8px}
+  .calcTabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+  .calcTabs button{cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--txt);border-radius:20px;padding:7px 14px;font-size:.85rem}
+  .calcTabs button.on{background:var(--accent);color:#04222e;border-color:var(--accent);font-weight:700}
+  footer{text-align:center;color:var(--muted);font-size:.78rem;padding:10px 0 30px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <h1>💡 Finanzas para Todos</h1>
+    <p>Lo que pasa en los mercados, en idioma simple — para gente que quiere entender e invertir.</p>
+  </header>
+
+  <div class="disc">⚠️ Contenido educativo e informativo. <b>No es asesoramiento ni recomendación de inversión.</b> Antes de invertir, informate y, si hace falta, consultá con un profesional matriculado.</div>
+
+  <!-- ===== NOTICIAS ===== -->
+  <div class="card news">
+    <h2>📰 Las noticias del día, fácil</h2>
+    <p class="updated">Actualizado: 18/06/2026 · se actualiza todos los días</p>
+    <p><span class="topic">La Reserva Federal puso nerviosos a los mercados.</span> La Fed (el banco central de EE.UU., que maneja las tasas de interés) dejó entrever que este año podría subir las tasas para frenar la inflación. Cuando las tasas suben, pedir plata prestada sale más caro y los inversores se asustan: por eso las bolsas de EE.UU. cayeron (el S&P 500 bajó 1,2%).</p>
+    <p><span class="topic">Buena noticia desde Medio Oriente.</span> EE.UU. firmó un acuerdo para terminar el conflicto con Irán y reabrir el Estrecho de Ormuz, una ruta clave por donde pasa muchísimo petróleo. Con menos miedo a que falte crudo, el precio del petróleo bajó más de 2%.</p>
+    <p><span class="topic">Refugio y cripto.</span> El oro, que la gente compra para protegerse en tiempos inciertos, se recuperó un poco. El Bitcoin, en cambio, bajó golpeado por las señales de la Fed.</p>
+    <p><span class="topic">Qué mirar.</span> Las próximas declaraciones de la Fed sobre las tasas, y si el acuerdo con Irán se sostiene.</p>
+  </div>
+
+  <!-- ===== PRECIOS ===== -->
+  <div class="card">
+    <h2>📈 Precios del día</h2>
+    <p class="updated">Datos del 17–18/06/2026 · se actualizan todos los días</p>
+    <div class="watch">
+      <div class="tick"><div class="nm">S&P 500 (bolsa EE.UU.)</div><div class="pr">7.420,10</div><div class="ch down">▼ 1,21%</div></div>
+      <div class="tick"><div class="nm">Nasdaq (tecnológicas)</div><div class="pr">26.021,66</div><div class="ch down">▼ 1,34%</div></div>
+      <div class="tick"><div class="nm">Oro (onza)</div><div class="pr">US$ 4.300</div><div class="ch up">▲ 0,5%</div></div>
+      <div class="tick"><div class="nm">Petróleo WTI (barril)</div><div class="pr">US$ 74,82</div><div class="ch down">▼ 2,6%</div></div>
+      <div class="tick"><div class="nm">Bitcoin</div><div class="pr">US$ 63.900</div><div class="ch down">▼ 1,3%</div></div>
+      <div class="tick"><div class="nm">Nvidia (NVDA)</div><div class="pr">US$ 208,82</div><div class="ch flat">≈ estable</div></div>
+    </div>
+    <p class="hint">▲ subió / ▼ bajó respecto al día anterior. Los precios son de referencia, no para operar en tiempo real.</p>
+  </div>
+
+  <!-- ===== 5 LEYES ===== -->
+  <div class="card">
+    <h2>🏛️ Las 5 leyes del oro</h2>
+    <p class="updated">Del clásico "El hombre más rico de Babilonia" — sabiduría de siempre, en simple</p>
+    <div class="law"><div class="n">1</div><div class="t"><b>Guardá al menos el 10% de lo que ganás.</b><small>El dinero llega y se queda con quien aparta una parte de cada ingreso, por chico que sea.</small></div></div>
+    <div class="law"><div class="n">2</div><div class="t"><b>Hacé que tu dinero trabaje para vos.</b><small>El dinero ahorrado que se invierte se multiplica; quieto, pierde valor con el tiempo.</small></div></div>
+    <div class="law"><div class="n">3</div><div class="t"><b>Pedí consejo a quien sabe.</b><small>Cuidá tu dinero invirtiéndolo con el consejo de gente con experiencia real en el tema.</small></div></div>
+    <div class="law"><div class="n">4</div><div class="t"><b>No inviertas en lo que no entendés.</b><small>El dinero se escapa de quien lo pone en negocios que no comprende o que los que saben no aprobarían.</small></div></div>
+    <div class="law"><div class="n">5</div><div class="t"><b>Desconfiá de las ganancias "mágicas".</b><small>El dinero huye de quien busca rendimientos imposibles o sigue a los que prometen hacerse rico rápido.</small></div></div>
+  </div>
+
+  <!-- ===== CALCULADORAS ===== -->
+  <div class="card">
+    <h2>🧮 Calculadoras</h2>
+    <div class="calcTabs">
+      <button id="tabP" class="on" onclick="showCalc('P')">¿Cuánto podría tener?</button>
+      <button id="tabB" onclick="showCalc('B')">¿Qué hubiera pasado?</button>
+    </div>
+
+    <div id="calcP">
+      <p class="updated">Proyectá cuánto podría crecer tu dinero con el tiempo.</p>
+      <div class="grid g4">
+        <div><label>Monto inicial</label><input id="p_ini" type="number" step="any" placeholder="1000000"></div>
+        <div><label>Aporte mensual (opcional)</label><input id="p_ap" type="number" step="any" placeholder="0"></div>
+        <div><label>Tasa anual estimada (%)</label><input id="p_tasa" type="number" step="any" placeholder="6.5"></div>
+        <div><label>Años</label><input id="p_anios" type="number" step="any" placeholder="5"></div>
+      </div>
+      <button class="btn" onclick="calcProy()">Calcular</button>
+      <div id="proyRes"></div>
+    </div>
+
+    <div id="calcB" style="display:none">
+      <p class="updated">Si hubieras invertido X cuando el precio era A, y hoy vale B...</p>
+      <div class="grid g3">
+        <div><label>Monto invertido</label><input id="b_monto" type="number" step="any" placeholder="500000"></div>
+        <div><label>Precio de entrada</label><input id="b_pe" type="number" step="any" placeholder="100"></div>
+        <div><label>Precio actual / final</label><input id="b_pa" type="number" step="any" placeholder="150"></div>
+      </div>
+      <button class="btn" onclick="calcBack()">Calcular</button>
+      <div id="backRes"></div>
+    </div>
+  </div>
+
+  <footer>Hecho para entender, no para apurarse. Esto es información, no consejo de inversión.</footer>
+</div>
+
+<script>
+const nf=new Intl.NumberFormat('es-AR',{maximumFractionDigits:2});
+function fmt(n){return '$ '+nf.format(Math.round((n+Number.EPSILON)*100)/100);}
+function pct(n){return (n>=0?'+':'')+nf.format(Math.round(n*10)/10)+'%';}
+
+function showCalc(w){
+  document.getElementById('calcP').style.display = w==='P'?'block':'none';
+  document.getElementById('calcB').style.display = w==='B'?'block':'none';
+  document.getElementById('tabP').className = w==='P'?'on':'';
+  document.getElementById('tabB').className = w==='B'?'on':'';
+}
+
+function calcProy(){
+  const ini=parseFloat(document.getElementById('p_ini').value)||0;
+  const ap=parseFloat(document.getElementById('p_ap').value)||0;
+  const tasa=parseFloat(document.getElementById('p_tasa').value);
+  const anios=parseInt(document.getElementById('p_anios').value);
+  const box=document.getElementById('proyRes');
+  if(isNaN(tasa)||isNaN(anios)||anios<=0){box.innerHTML='<p class="hint">Completá tasa y años.</p>';return;}
+  const rm=tasa/100/12; let saldo=ini;
+  for(let m=1;m<=anios*12;m++){saldo=saldo*(1+rm)+ap;}
+  const aportado=ini+ap*anios*12, ganancia=saldo-aportado;
+  box.innerHTML=`<div class="result">
+    <div class="lbl">Podrías tener en ${anios} años (estimado)</div>
+    <div class="big">${fmt(saldo)}</div>
+    <div class="row2"><span>Total que aportaste</span><span>${fmt(aportado)}</span></div>
+    <div class="row2"><span>Ganancia estimada</span><span class="up">${fmt(ganancia)}</span></div>
+    <p class="hint">La tasa es un supuesto tuyo. El resultado real puede ser mayor o menor.</p></div>`;
+}
+
+function calcBack(){
+  const monto=parseFloat(document.getElementById('b_monto').value);
+  const pe=parseFloat(document.getElementById('b_pe').value);
+  const pa=parseFloat(document.getElementById('b_pa').value);
+  const box=document.getElementById('backRes');
+  if(isNaN(monto)||isNaN(pe)||isNaN(pa)||pe<=0){box.innerHTML='<p class="hint">Completá monto y precios.</p>';return;}
+  const finalVal=monto*(pa/pe), res=finalVal-monto, rp=res/monto*100;
+  box.innerHTML=`<div class="result">
+    <div class="lbl">Hoy tendrías</div>
+    <div class="big" style="color:${res>=0?'var(--green)':'var(--red)'}">${fmt(finalVal)}</div>
+    <div class="row2"><span>Habías invertido</span><span>${fmt(monto)}</span></div>
+    <div class="row2"><span>Resultado</span><span class="${res>=0?'up':'down'}">${fmt(res)} (${pct(rp)})</span></div>
+    <p class="hint">Cálculo sobre el cambio de precio. No incluye comisiones, impuestos ni dividendos.</p></div>`;
+}
+</script>
+</body>
+</html>
