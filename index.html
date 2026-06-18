@@ -3,14 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- NOMBRE PROVISORIO: cambialo cuando definas la marca -->
 <title>Finanzas para Todos</title>
 <style>
-  :root{
-    --bg:#0b1220;--card:#151f33;--card2:#1f2c45;--txt:#e8eef7;--muted:#93a4bd;
-    --accent:#4cc9f0;--green:#3ddc91;--red:#ff6b6b;--gold:#f5c542;--line:#2e3d59;
-    --c1:#4cc9f0;--c2:#3ddc91;--c3:#f5c542;--c4:#ff6b6b;--c5:#b18cff;--c6:#ff9f59;
-  }
+  :root{--bg:#0b1220;--card:#151f33;--card2:#1f2c45;--txt:#e8eef7;--muted:#93a4bd;--accent:#4cc9f0;--green:#3ddc91;--red:#ff6b6b;--gold:#f5c542;--line:#2e3d59;}
   *{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
   body{margin:0;background:var(--bg);color:var(--txt);line-height:1.55}
   .wrap{max-width:860px;margin:0 auto;padding:18px}
@@ -38,10 +33,19 @@
   label{display:block;font-size:.78rem;color:var(--muted);margin:0 0 3px}
   input,select{width:100%;padding:9px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card2);color:var(--txt);font-size:.92rem}
   .grid{display:grid;gap:10px}
-  .g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}
-  @media(max-width:620px){.g4,.g3{grid-template-columns:1fr 1fr}}
+  .g5{grid-template-columns:1.4fr .9fr .8fr 1fr 1fr auto}
+  .g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:620px){.g5,.g4,.g3,.g2{grid-template-columns:1fr 1fr}}
   button.btn{cursor:pointer;border:none;border-radius:8px;padding:10px 16px;font-weight:700;background:var(--accent);color:#04222e;margin-top:12px}
   button.btn:hover{filter:brightness(1.1)}
+  button.btn2{cursor:pointer;border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:8px;padding:9px 14px;font-weight:600;margin:12px 8px 0 0}
+  table{width:100%;border-collapse:collapse;font-size:.84rem;margin-top:10px}
+  th,td{padding:7px 6px;text-align:right;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  th{color:var(--muted);font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.03em}
+  .pos{color:var(--green)}.neg{color:var(--red)}
+  .total td{font-weight:700;border-top:2px solid var(--accent);border-bottom:none}
+  .del{background:transparent;color:var(--red);cursor:pointer;border:none;font-size:1rem}
   .result{background:var(--card2);border-radius:10px;padding:14px;margin-top:14px}
   .result .lbl{color:var(--muted);font-size:.8rem}
   .result .big{font-size:1.7rem;font-weight:800;color:var(--green)}
@@ -56,15 +60,12 @@
 </head>
 <body>
 <div class="wrap">
-
   <header class="top">
     <h1>💡 Finanzas para Todos</h1>
     <p>Lo que pasa en los mercados, en idioma simple — para gente que quiere entender e invertir.</p>
   </header>
-
   <div class="disc">⚠️ Contenido educativo e informativo. <b>No es asesoramiento ni recomendación de inversión.</b> Antes de invertir, informate y, si hace falta, consultá con un profesional matriculado.</div>
 
-  <!-- ===== NOTICIAS ===== -->
   <div class="card news">
     <h2>📰 Las noticias del día, fácil</h2>
     <p class="updated">Actualizado: 18/06/2026 · se actualiza todos los días</p>
@@ -74,7 +75,12 @@
     <p><span class="topic">Qué mirar.</span> Las próximas declaraciones de la Fed sobre las tasas, y si el acuerdo con Irán se sostiene.</p>
   </div>
 
-  <!-- ===== PRECIOS ===== -->
+  <div class="card" style="background:linear-gradient(135deg,#15324a,#1f2c45);border:1px solid var(--accent)">
+    <h2>📬 No te pierdas el resumen del día</h2>
+    <p style="margin:0 0 14px">Dejá tu mail y recibí, en idioma simple, lo que pasa en los mercados cada día. Sin jerga y sin spam.</p>
+    <a href="mailto:joaquini.solutions@gmail.com?subject=Quiero%20recibir%20el%20resumen%20del%20d%C3%ADa" class="btn" style="display:inline-block;text-decoration:none">Quiero recibirlo →</a>
+  </div>
+
   <div class="card">
     <h2>📈 Precios del día</h2>
     <p class="updated">Datos del 17–18/06/2026 · se actualizan todos los días</p>
@@ -89,26 +95,44 @@
     <p class="hint">▲ subió / ▼ bajó respecto al día anterior. Los precios son de referencia, no para operar en tiempo real.</p>
   </div>
 
-  <!-- ===== 5 LEYES ===== -->
   <div class="card">
-    <h2>🏛️ Las 5 leyes del oro</h2>
-    <p class="updated">Del clásico "El hombre más rico de Babilonia" — sabiduría de siempre, en simple</p>
-    <div class="law"><div class="n">1</div><div class="t"><b>Guardá al menos el 10% de lo que ganás.</b><small>El dinero llega y se queda con quien aparta una parte de cada ingreso, por chico que sea.</small></div></div>
-    <div class="law"><div class="n">2</div><div class="t"><b>Hacé que tu dinero trabaje para vos.</b><small>El dinero ahorrado que se invierte se multiplica; quieto, pierde valor con el tiempo.</small></div></div>
-    <div class="law"><div class="n">3</div><div class="t"><b>Pedí consejo a quien sabe.</b><small>Cuidá tu dinero invirtiéndolo con el consejo de gente con experiencia real en el tema.</small></div></div>
-    <div class="law"><div class="n">4</div><div class="t"><b>No inviertas en lo que no entendés.</b><small>El dinero se escapa de quien lo pone en negocios que no comprende o que los que saben no aprobarían.</small></div></div>
-    <div class="law"><div class="n">5</div><div class="t"><b>Desconfiá de las ganancias "mágicas".</b><small>El dinero huye de quien busca rendimientos imposibles o sigue a los que prometen hacerse rico rápido.</small></div></div>
+    <h2>🧰 Armá tu portafolio</h2>
+    <p class="updated">Cargá tus inversiones y exportalas a una planilla. Tus datos se guardan solo en tu navegador — nadie más los ve.</p>
+    <div class="grid g5">
+      <div><label>Activo</label><input id="i_act" placeholder="Ej: Nvidia"></div>
+      <div><label>Tipo</label><select id="i_tipo"><option>Acción</option><option>Bono</option><option>Fondo</option><option>Cripto</option><option>Commodity</option><option>Otro</option></select></div>
+      <div><label>Cantidad</label><input id="i_cant" type="number" step="any" placeholder="0"></div>
+      <div><label>Precio compra</label><input id="i_pc" type="number" step="any" placeholder="0"></div>
+      <div><label>Precio actual</label><input id="i_pa" type="number" step="any" placeholder="0"></div>
+      <div style="display:flex;align-items:flex-end"><button class="btn" style="margin:0" onclick="addInv()">+ Agregar</button></div>
+    </div>
+    <table id="tbl">
+      <thead><tr><th>Activo</th><th>Tipo</th><th>Cant.</th><th>Invertido</th><th>Valor hoy</th><th>Resultado</th><th></th></tr></thead>
+      <tbody id="tbody"></tbody>
+      <tfoot id="tfoot"></tfoot>
+    </table>
+    <button class="btn2" onclick="exportCSV()">⬇ Exportar a planilla (CSV)</button>
+    <button class="btn2" onclick="clearPort()">Vaciar</button>
+    <p class="hint">El CSV se abre directo en Google Sheets o Excel.</p>
   </div>
 
-  <!-- ===== CALCULADORAS ===== -->
   <div class="card">
     <h2>🧮 Calculadoras</h2>
     <div class="calcTabs">
-      <button id="tabP" class="on" onclick="showCalc('P')">¿Cuánto podría tener?</button>
+      <button id="tabA" class="on" onclick="showCalc('A')">Por activo (5 años)</button>
+      <button id="tabP" onclick="showCalc('P')">¿Cuánto podría tener?</button>
       <button id="tabB" onclick="showCalc('B')">¿Qué hubiera pasado?</button>
     </div>
-
-    <div id="calcP">
+    <div id="calcA">
+      <p class="updated">Elegí un activo y mirá cuánto tendrías hoy si hubieras invertido hace 5 años (junio 2021).</p>
+      <div class="grid g2">
+        <div><label>Activo</label><select id="a_sel"></select></div>
+        <div><label>Monto que hubieras invertido</label><input id="a_monto" type="number" step="any" placeholder="500000"></div>
+      </div>
+      <button class="btn" onclick="calcActivo()">Calcular</button>
+      <div id="actRes"></div>
+    </div>
+    <div id="calcP" style="display:none">
       <p class="updated">Proyectá cuánto podría crecer tu dinero con el tiempo.</p>
       <div class="grid g4">
         <div><label>Monto inicial</label><input id="p_ini" type="number" step="any" placeholder="1000000"></div>
@@ -119,7 +143,6 @@
       <button class="btn" onclick="calcProy()">Calcular</button>
       <div id="proyRes"></div>
     </div>
-
     <div id="calcB" style="display:none">
       <p class="updated">Si hubieras invertido X cuando el precio era A, y hoy vale B...</p>
       <div class="grid g3">
@@ -132,6 +155,16 @@
     </div>
   </div>
 
+  <div class="card">
+    <h2>🏛️ Las 5 leyes del oro</h2>
+    <p class="updated">Del clásico "El hombre más rico de Babilonia" — sabiduría de siempre, en simple</p>
+    <div class="law"><div class="n">1</div><div class="t"><b>Guardá al menos el 10% de lo que ganás.</b><small>El dinero llega y se queda con quien aparta una parte de cada ingreso, por chico que sea.</small></div></div>
+    <div class="law"><div class="n">2</div><div class="t"><b>Hacé que tu dinero trabaje para vos.</b><small>El dinero ahorrado que se invierte se multiplica; quieto, pierde valor con el tiempo.</small></div></div>
+    <div class="law"><div class="n">3</div><div class="t"><b>Pedí consejo a quien sabe.</b><small>Cuidá tu dinero invirtiéndolo con el consejo de gente con experiencia real en el tema.</small></div></div>
+    <div class="law"><div class="n">4</div><div class="t"><b>No inviertas en lo que no entendés.</b><small>El dinero se escapa de quien lo pone en negocios que no comprende o que los que saben no aprobarían.</small></div></div>
+    <div class="law"><div class="n">5</div><div class="t"><b>Desconfiá de las ganancias "mágicas".</b><small>El dinero huye de quien busca rendimientos imposibles o sigue a los que prometen hacerse rico rápido.</small></div></div>
+  </div>
+
   <footer>Hecho para entender, no para apurarse. Esto es información, no consejo de inversión.</footer>
 </div>
 
@@ -140,45 +173,50 @@ const nf=new Intl.NumberFormat('es-AR',{maximumFractionDigits:2});
 function fmt(n){return '$ '+nf.format(Math.round((n+Number.EPSILON)*100)/100);}
 function pct(n){return (n>=0?'+':'')+nf.format(Math.round(n*10)/10)+'%';}
 
-function showCalc(w){
-  document.getElementById('calcP').style.display = w==='P'?'block':'none';
-  document.getElementById('calcB').style.display = w==='B'?'block':'none';
-  document.getElementById('tabP').className = w==='P'?'on':'';
-  document.getElementById('tabB').className = w==='B'?'on':'';
+/* ---- Portafolio del visitante (guardado en su navegador) ---- */
+let port=[];
+try{port=JSON.parse(localStorage.getItem('fpt_port')||'[]');}catch(e){port=[];}
+function savePort(){try{localStorage.setItem('fpt_port',JSON.stringify(port));}catch(e){}}
+function addInv(){
+  const a=document.getElementById('i_act').value.trim();
+  const cant=parseFloat(document.getElementById('i_cant').value);
+  const pc=parseFloat(document.getElementById('i_pc').value);
+  const pa=parseFloat(document.getElementById('i_pa').value);
+  if(!a||isNaN(cant)||isNaN(pc)){alert('Completá al menos activo, cantidad y precio de compra.');return;}
+  port.push({a,tipo:document.getElementById('i_tipo').value,cant,pc,pa:isNaN(pa)?pc:pa});
+  document.getElementById('i_act').value='';document.getElementById('i_cant').value='';
+  document.getElementById('i_pc').value='';document.getElementById('i_pa').value='';
+  savePort();renderPort();
 }
+function delInv(i){port.splice(i,1);savePort();renderPort();}
+function clearPort(){if(port.length&&confirm('¿Vaciar todo el portafolio?')){port=[];savePort();renderPort();}}
+function renderPort(){
+  const tb=document.getElementById('tbody');tb.innerHTML='';let ti=0,tv=0;
+  port.forEach((r,i)=>{
+    const invM=r.cant*r.pc,val=r.cant*r.pa,res=val-invM,rp=invM?res/invM*100:0;ti+=invM;tv+=val;
+    tb.innerHTML+='<tr><td>'+r.a+'</td><td style="color:var(--muted)">'+r.tipo+'</td><td>'+nf.format(r.cant)+'</td><td>'+fmt(invM)+'</td><td>'+fmt(val)+'</td><td class="'+(res>=0?'pos':'neg')+'">'+fmt(res)+'<br><small>'+pct(rp)+'</small></td><td><button class="del" onclick="delInv('+i+')">✕</button></td></tr>';
+  });
+  const ft=document.getElementById('tfoot');
+  if(port.length){const res=tv-ti,rp=ti?res/ti*100:0;ft.innerHTML='<tr class="total"><td>TOTAL</td><td></td><td></td><td>'+fmt(ti)+'</td><td>'+fmt(tv)+'</td><td class="'+(res>=0?'pos':'neg')+'">'+fmt(res)+'<br><small>'+pct(rp)+'</small></td><td></td></tr>';}else{ft.innerHTML='';}
+}
+function exportCSV(){
+  if(!port.length){alert('Agregá al menos una inversión.');return;}
+  const head=['Activo','Tipo','Cantidad','Precio compra','Precio actual','Invertido','Valor hoy','Resultado','Resultado %'];
+  const rows=[head];
+  port.forEach(r=>{const invM=r.cant*r.pc,val=r.cant*r.pa,res=val-invM,rp=invM?res/invM*100:0;rows.push([r.a,r.tipo,r.cant,r.pc,r.pa,invM,val,res,Math.round(rp*10)/10]);});
+  const csv='﻿'+rows.map(row=>row.map(c=>(typeof c==='string'&&(c.includes(',')||c.includes('"')))?'"'+c.replace(/"/g,'""')+'"':c).join(',')).join('\n');
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+  const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='mi_portafolio.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+}
+renderPort();
 
-function calcProy(){
-  const ini=parseFloat(document.getElementById('p_ini').value)||0;
-  const ap=parseFloat(document.getElementById('p_ap').value)||0;
-  const tasa=parseFloat(document.getElementById('p_tasa').value);
-  const anios=parseInt(document.getElementById('p_anios').value);
-  const box=document.getElementById('proyRes');
-  if(isNaN(tasa)||isNaN(anios)||anios<=0){box.innerHTML='<p class="hint">Completá tasa y años.</p>';return;}
-  const rm=tasa/100/12; let saldo=ini;
-  for(let m=1;m<=anios*12;m++){saldo=saldo*(1+rm)+ap;}
-  const aportado=ini+ap*anios*12, ganancia=saldo-aportado;
-  box.innerHTML=`<div class="result">
-    <div class="lbl">Podrías tener en ${anios} años (estimado)</div>
-    <div class="big">${fmt(saldo)}</div>
-    <div class="row2"><span>Total que aportaste</span><span>${fmt(aportado)}</span></div>
-    <div class="row2"><span>Ganancia estimada</span><span class="up">${fmt(ganancia)}</span></div>
-    <p class="hint">La tasa es un supuesto tuyo. El resultado real puede ser mayor o menor.</p></div>`;
-}
-
-function calcBack(){
-  const monto=parseFloat(document.getElementById('b_monto').value);
-  const pe=parseFloat(document.getElementById('b_pe').value);
-  const pa=parseFloat(document.getElementById('b_pa').value);
-  const box=document.getElementById('backRes');
-  if(isNaN(monto)||isNaN(pe)||isNaN(pa)||pe<=0){box.innerHTML='<p class="hint">Completá monto y precios.</p>';return;}
-  const finalVal=monto*(pa/pe), res=finalVal-monto, rp=res/monto*100;
-  box.innerHTML=`<div class="result">
-    <div class="lbl">Hoy tendrías</div>
-    <div class="big" style="color:${res>=0?'var(--green)':'var(--red)'}">${fmt(finalVal)}</div>
-    <div class="row2"><span>Habías invertido</span><span>${fmt(monto)}</span></div>
-    <div class="row2"><span>Resultado</span><span class="${res>=0?'up':'down'}">${fmt(res)} (${pct(rp)})</span></div>
-    <p class="hint">Cálculo sobre el cambio de precio. No incluye comisiones, impuestos ni dividendos.</p></div>`;
-}
+/* ---- Calculadoras ---- */
+const ACTIVOS={"Nvidia (NVDA)":{hoy:208.82,hace5:20,u:"US$ "},"Bitcoin":{hoy:63900,hace5:35000,u:"US$ "},"S&P 500":{hoy:7420,hace5:4300,u:""},"Oro (onza)":{hoy:4300,hace5:1770,u:"US$ "}};
+(function(){const s=document.getElementById('a_sel');for(const k in ACTIVOS){const o=document.createElement('option');o.value=k;o.textContent=k;s.appendChild(o);}})();
+function showCalc(w){['A','P','B'].forEach(x=>{document.getElementById('calc'+x).style.display=(x===w)?'block':'none';document.getElementById('tab'+x).className=(x===w)?'on':'';});}
+function calcActivo(){const k=document.getElementById('a_sel').value,a=ACTIVOS[k];const monto=parseFloat(document.getElementById('a_monto').value);const box=document.getElementById('actRes');if(!a||isNaN(monto)){box.innerHTML='<p class="hint">Elegí un activo y poné un monto.</p>';return;}const factor=a.hoy/a.hace5,finalVal=monto*factor,rp=(factor-1)*100;box.innerHTML='<div class="result"><div class="lbl">Si hace 5 años hubieras invertido '+fmt(monto)+' en '+k+', hoy tendrías</div><div class="big">'+fmt(finalVal)+'</div><div class="row2"><span>Rendimiento</span><span class="'+(rp>=0?'up':'down')+'">'+pct(rp)+'</span></div><div class="row2"><span>Precio en jun 2021</span><span>'+a.u+nf.format(a.hace5)+'</span></div><div class="row2"><span>Precio hoy</span><span>'+a.u+nf.format(a.hoy)+'</span></div><p class="hint">Precios de referencia (jun 2021 → jun 2026). El rendimiento pasado NO garantiza resultados futuros. No incluye comisiones ni impuestos.</p></div>';}
+function calcProy(){const ini=parseFloat(document.getElementById('p_ini').value)||0;const ap=parseFloat(document.getElementById('p_ap').value)||0;const tasa=parseFloat(document.getElementById('p_tasa').value);const anios=parseInt(document.getElementById('p_anios').value);const box=document.getElementById('proyRes');if(isNaN(tasa)||isNaN(anios)||anios<=0){box.innerHTML='<p class="hint">Completá tasa y años.</p>';return;}const rm=tasa/100/12;let saldo=ini;for(let m=1;m<=anios*12;m++){saldo=saldo*(1+rm)+ap;}const aportado=ini+ap*anios*12,ganancia=saldo-aportado;box.innerHTML='<div class="result"><div class="lbl">Podrías tener en '+anios+' años (estimado)</div><div class="big">'+fmt(saldo)+'</div><div class="row2"><span>Total que aportaste</span><span>'+fmt(aportado)+'</span></div><div class="row2"><span>Ganancia estimada</span><span class="up">'+fmt(ganancia)+'</span></div><p class="hint">La tasa es un supuesto tuyo. El resultado real puede ser mayor o menor.</p></div>';}
+function calcBack(){const monto=parseFloat(document.getElementById('b_monto').value);const pe=parseFloat(document.getElementById('b_pe').value);const pa=parseFloat(document.getElementById('b_pa').value);const box=document.getElementById('backRes');if(isNaN(monto)||isNaN(pe)||isNaN(pa)||pe<=0){box.innerHTML='<p class="hint">Completá monto y precios.</p>';return;}const finalVal=monto*(pa/pe),res=finalVal-monto,rp=res/monto*100;box.innerHTML='<div class="result"><div class="lbl">Hoy tendrías</div><div class="big" style="color:'+(res>=0?'var(--green)':'var(--red)')+'">'+fmt(finalVal)+'</div><div class="row2"><span>Habías invertido</span><span>'+fmt(monto)+'</span></div><div class="row2"><span>Resultado</span><span class="'+(res>=0?'up':'down')+'">'+fmt(res)+' ('+pct(rp)+')</span></div><p class="hint">Cálculo sobre el cambio de precio. No incluye comisiones, impuestos ni dividendos.</p></div>';}
 </script>
 </body>
 </html>
