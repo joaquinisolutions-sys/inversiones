@@ -3,41 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Finanzas para Todos</title>
+<title>Ahorrar es Lava</title>
 <style>
-  :root{--bg:#0b1220;--card:#151f33;--card2:#1f2c45;--txt:#e8eef7;--muted:#93a4bd;--accent:#4cc9f0;--green:#3ddc91;--red:#ff6b6b;--gold:#f5c542;--line:#2e3d59;}
+  :root{--bg:#f4f6fb;--card:#ffffff;--soft:#eef2f8;--txt:#1b2433;--muted:#6b7686;--accent:#ff5a1f;--accent2:#ff8c42;--green:#16a34a;--red:#e23b3b;--gold:#e0a020;--line:#e6eaf1;}
   *{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
   body{margin:0;background:var(--bg);color:var(--txt);line-height:1.55}
   .wrap{max-width:860px;margin:0 auto;padding:18px}
-  header.top{text-align:center;padding:26px 0 10px}
-  header.top h1{font-size:2rem;margin:0}
-  header.top p{color:var(--muted);margin:4px 0 0}
-  .disc{background:#3a2606;color:#fde08a;border:1px solid #946c12;border-radius:10px;padding:9px 13px;font-size:.8rem;margin:14px 0}
-  .card{background:var(--card);border-radius:16px;padding:20px;margin:0 0 18px;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+  header.top{text-align:center;padding:28px 0 10px}
+  header.top h1{font-size:2.1rem;margin:0;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  header.top p{color:var(--muted);margin:6px 0 0}
+  .disc{background:#fff4e6;color:#9a4a00;border:1px solid #ffd9b0;border-radius:10px;padding:9px 13px;font-size:.8rem;margin:14px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin:0 0 18px;box-shadow:0 4px 14px rgba(27,36,51,.05)}
   h2{font-size:1.25rem;margin:0 0 4px;display:flex;align-items:center;gap:8px}
   .updated{color:var(--muted);font-size:.72rem;margin:0 0 14px}
   .news p{margin:0 0 12px}
   .news .topic{font-weight:700;color:var(--accent)}
+  .concepto{background:var(--soft);border-left:4px solid var(--accent);border-radius:10px;padding:14px 16px}
+  .concepto b{font-size:1.05rem}
+  .concepto p{margin:6px 0 0}
   .watch{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
   @media(max-width:620px){.watch{grid-template-columns:repeat(2,1fr)}}
-  .tick{background:var(--card2);border-radius:12px;padding:12px}
+  .tick{background:var(--soft);border-radius:12px;padding:12px}
   .tick .nm{font-size:.78rem;color:var(--muted)}
   .tick .pr{font-size:1.18rem;font-weight:700;margin:2px 0}
   .tick .ch{font-size:.85rem;font-weight:600}
   .up{color:var(--green)}.down{color:var(--red)}.flat{color:var(--muted)}
   .law{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
   .law:last-child{border-bottom:none}
-  .law .n{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#3a2606;font-weight:800;display:flex;align-items:center;justify-content:center}
-  .law .t b{color:var(--gold)}
+  .law .n{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .law .t b{color:var(--accent)}
   .law .t small{color:var(--muted);display:block;margin-top:2px}
   label{display:block;font-size:.78rem;color:var(--muted);margin:0 0 3px}
-  input,select{width:100%;padding:9px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card2);color:var(--txt);font-size:.92rem}
+  input,select{width:100%;padding:9px 10px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--txt);font-size:.92rem}
   .grid{display:grid;gap:10px}
   .g5{grid-template-columns:1.4fr .9fr .8fr 1fr 1fr auto}
   .g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
   @media(max-width:620px){.g5,.g4,.g3,.g2{grid-template-columns:1fr 1fr}}
-  button.btn{cursor:pointer;border:none;border-radius:8px;padding:10px 16px;font-weight:700;background:var(--accent);color:#04222e;margin-top:12px}
-  button.btn:hover{filter:brightness(1.1)}
+  button.btn{cursor:pointer;border:none;border-radius:8px;padding:10px 16px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;margin-top:12px}
+  button.btn:hover{filter:brightness(1.05)}
   button.btn2{cursor:pointer;border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:8px;padding:9px 14px;font-weight:600;margin:12px 8px 0 0}
   table{width:100%;border-collapse:collapse;font-size:.84rem;margin-top:10px}
   th,td{padding:7px 6px;text-align:right;border-bottom:1px solid var(--line)}
@@ -46,23 +49,23 @@
   .pos{color:var(--green)}.neg{color:var(--red)}
   .total td{font-weight:700;border-top:2px solid var(--accent);border-bottom:none}
   .del{background:transparent;color:var(--red);cursor:pointer;border:none;font-size:1rem}
-  .result{background:var(--card2);border-radius:10px;padding:14px;margin-top:14px}
+  .result{background:var(--soft);border-radius:10px;padding:14px;margin-top:14px}
   .result .lbl{color:var(--muted);font-size:.8rem}
   .result .big{font-size:1.7rem;font-weight:800;color:var(--green)}
   .row2{display:flex;justify-content:space-between;margin-top:6px;font-size:.9rem}
   .row2 span:last-child{font-weight:600}
   .hint{font-size:.74rem;color:var(--muted);margin-top:8px}
   .calcTabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-  .calcTabs button{cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--txt);border-radius:20px;padding:7px 14px;font-size:.85rem}
-  .calcTabs button.on{background:var(--accent);color:#04222e;border-color:var(--accent);font-weight:700}
+  .calcTabs button{cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--txt);border-radius:20px;padding:7px 14px;font-size:.85rem}
+  .calcTabs button.on{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-color:transparent;font-weight:700}
   footer{text-align:center;color:var(--muted);font-size:.78rem;padding:10px 0 30px}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
-    <h1>💡 Finanzas para Todos</h1>
-    <p>Lo que pasa en los mercados, en idioma simple — para gente que quiere entender e invertir.</p>
+    <h1>🌋 Ahorrar es Lava</h1>
+    <p>Lo que pasa con tu plata, en idioma simple — para empezar a invertir sin miedo.</p>
   </header>
   <div class="disc">⚠️ Contenido educativo e informativo. <b>No es asesoramiento ni recomendación de inversión.</b> Antes de invertir, informate y, si hace falta, consultá con un profesional matriculado.</div>
 
@@ -75,7 +78,16 @@
     <p><span class="topic">Qué mirar.</span> Las próximas declaraciones de la Fed sobre las tasas, y si el acuerdo con Irán se sostiene.</p>
   </div>
 
-  <div class="card" style="background:linear-gradient(135deg,#15324a,#1f2c45);border:1px solid var(--accent)">
+  <div class="card">
+    <h2>📚 Concepto del día</h2>
+    <p class="updated">Un término nuevo, explicado fácil, cada día.</p>
+    <div class="concepto">
+      <b>Interés compuesto</b>
+      <p>Es cuando tus ganancias también empiezan a generar ganancias. Tu plata hace una bola de nieve: cuanto antes empezás, más crece sola con el tiempo, sin que hagas nada.</p>
+    </div>
+  </div>
+
+  <div class="card" style="background:linear-gradient(135deg,#fff0e8,#ffffff);border:1px solid #ffd9b0">
     <h2>📬 No te pierdas el resumen del día</h2>
     <p style="margin:0 0 14px">Dejá tu mail y recibí, en idioma simple, lo que pasa en los mercados cada día. Sin jerga y sin spam.</p>
     <a href="mailto:joaquini.solutions@gmail.com?subject=Quiero%20recibir%20el%20resumen%20del%20d%C3%ADa" class="btn" style="display:inline-block;text-decoration:none">Quiero recibirlo →</a>
@@ -165,52 +177,21 @@
     <div class="law"><div class="n">5</div><div class="t"><b>Desconfiá de las ganancias "mágicas".</b><small>El dinero huye de quien busca rendimientos imposibles o sigue a los que prometen hacerse rico rápido.</small></div></div>
   </div>
 
-  <footer>Hecho para entender, no para apurarse. Esto es información, no consejo de inversión.</footer>
+  <footer>🌋 Ahorrar es Lava · Hecho para entender, no para apurarse. Esto es información, no consejo de inversión.</footer>
 </div>
 
 <script>
 const nf=new Intl.NumberFormat('es-AR',{maximumFractionDigits:2});
 function fmt(n){return '$ '+nf.format(Math.round((n+Number.EPSILON)*100)/100);}
 function pct(n){return (n>=0?'+':'')+nf.format(Math.round(n*10)/10)+'%';}
-
-/* ---- Portafolio del visitante (guardado en su navegador) ---- */
-let port=[];
-try{port=JSON.parse(localStorage.getItem('fpt_port')||'[]');}catch(e){port=[];}
+let port=[];try{port=JSON.parse(localStorage.getItem('fpt_port')||'[]');}catch(e){port=[];}
 function savePort(){try{localStorage.setItem('fpt_port',JSON.stringify(port));}catch(e){}}
-function addInv(){
-  const a=document.getElementById('i_act').value.trim();
-  const cant=parseFloat(document.getElementById('i_cant').value);
-  const pc=parseFloat(document.getElementById('i_pc').value);
-  const pa=parseFloat(document.getElementById('i_pa').value);
-  if(!a||isNaN(cant)||isNaN(pc)){alert('Completá al menos activo, cantidad y precio de compra.');return;}
-  port.push({a,tipo:document.getElementById('i_tipo').value,cant,pc,pa:isNaN(pa)?pc:pa});
-  document.getElementById('i_act').value='';document.getElementById('i_cant').value='';
-  document.getElementById('i_pc').value='';document.getElementById('i_pa').value='';
-  savePort();renderPort();
-}
+function addInv(){const a=document.getElementById('i_act').value.trim();const cant=parseFloat(document.getElementById('i_cant').value);const pc=parseFloat(document.getElementById('i_pc').value);const pa=parseFloat(document.getElementById('i_pa').value);if(!a||isNaN(cant)||isNaN(pc)){alert('Completá al menos activo, cantidad y precio de compra.');return;}port.push({a,tipo:document.getElementById('i_tipo').value,cant,pc,pa:isNaN(pa)?pc:pa});document.getElementById('i_act').value='';document.getElementById('i_cant').value='';document.getElementById('i_pc').value='';document.getElementById('i_pa').value='';savePort();renderPort();}
 function delInv(i){port.splice(i,1);savePort();renderPort();}
 function clearPort(){if(port.length&&confirm('¿Vaciar todo el portafolio?')){port=[];savePort();renderPort();}}
-function renderPort(){
-  const tb=document.getElementById('tbody');tb.innerHTML='';let ti=0,tv=0;
-  port.forEach((r,i)=>{
-    const invM=r.cant*r.pc,val=r.cant*r.pa,res=val-invM,rp=invM?res/invM*100:0;ti+=invM;tv+=val;
-    tb.innerHTML+='<tr><td>'+r.a+'</td><td style="color:var(--muted)">'+r.tipo+'</td><td>'+nf.format(r.cant)+'</td><td>'+fmt(invM)+'</td><td>'+fmt(val)+'</td><td class="'+(res>=0?'pos':'neg')+'">'+fmt(res)+'<br><small>'+pct(rp)+'</small></td><td><button class="del" onclick="delInv('+i+')">✕</button></td></tr>';
-  });
-  const ft=document.getElementById('tfoot');
-  if(port.length){const res=tv-ti,rp=ti?res/ti*100:0;ft.innerHTML='<tr class="total"><td>TOTAL</td><td></td><td></td><td>'+fmt(ti)+'</td><td>'+fmt(tv)+'</td><td class="'+(res>=0?'pos':'neg')+'">'+fmt(res)+'<br><small>'+pct(rp)+'</small></td><td></td></tr>';}else{ft.innerHTML='';}
-}
-function exportCSV(){
-  if(!port.length){alert('Agregá al menos una inversión.');return;}
-  const head=['Activo','Tipo','Cantidad','Precio compra','Precio actual','Invertido','Valor hoy','Resultado','Resultado %'];
-  const rows=[head];
-  port.forEach(r=>{const invM=r.cant*r.pc,val=r.cant*r.pa,res=val-invM,rp=invM?res/invM*100:0;rows.push([r.a,r.tipo,r.cant,r.pc,r.pa,invM,val,res,Math.round(rp*10)/10]);});
-  const csv='﻿'+rows.map(row=>row.map(c=>(typeof c==='string'&&(c.includes(',')||c.includes('"')))?'"'+c.replace(/"/g,'""')+'"':c).join(',')).join('\n');
-  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
-  const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='mi_portafolio.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
-}
+function renderPort(){const tb=document.getElementById('tbody');tb.innerHTML='';let ti=0,tv=0;port.forEach((r,i)=>{const invM=r.cant*r.pc,val=r.cant*r.pa,res=val-invM,rp=invM?res/invM*100:0;ti+=invM;tv+=val;tb.innerHTML+='<tr><td>'+r.a+'</td><td style="color:var(--muted)">'+r.tipo+'</td><td>'+nf.format(r.cant)+'</td><td>'+fmt(invM)+'</td><td>'+fmt(val)+'</td><td class="'+(res>=0?'pos':'neg')+'">'+fmt(res)+'<br><small>'+pct(rp)+'</small></td><td><button class="del" onclick="delInv('+i+')">✕</button></td></tr>';});const ft=document.getElementById('tfoot');if(port.length){const res=tv-ti,rp=ti?res/ti*100:0;ft.innerHTML='<tr class="total"><td>TOTAL</td><td></td><td></td><td>'+fmt(ti)+'</td><td>'+fmt(tv)+'</td><td class="'+(res>=0?'pos':'neg')+'">'+fmt(res)+'<br><small>'+pct(rp)+'</small></td><td></td></tr>';}else{ft.innerHTML='';}}
+function exportCSV(){if(!port.length){alert('Agregá al menos una inversión.');return;}const head=['Activo','Tipo','Cantidad','Precio compra','Precio actual','Invertido','Valor hoy','Resultado','Resultado %'];const rows=[head];port.forEach(r=>{const invM=r.cant*r.pc,val=r.cant*r.pa,res=val-invM,rp=invM?res/invM*100:0;rows.push([r.a,r.tipo,r.cant,r.pc,r.pa,invM,val,res,Math.round(rp*10)/10]);});const csv='﻿'+rows.map(row=>row.map(c=>(typeof c==='string'&&(c.includes(',')||c.includes('"')))?'"'+c.replace(/"/g,'""')+'"':c).join(',')).join('\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='mi_portafolio.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);}
 renderPort();
-
-/* ---- Calculadoras ---- */
 const ACTIVOS={"Nvidia (NVDA)":{hoy:208.82,hace5:20,u:"US$ "},"Bitcoin":{hoy:63900,hace5:35000,u:"US$ "},"S&P 500":{hoy:7420,hace5:4300,u:""},"Oro (onza)":{hoy:4300,hace5:1770,u:"US$ "}};
 (function(){const s=document.getElementById('a_sel');for(const k in ACTIVOS){const o=document.createElement('option');o.value=k;o.textContent=k;s.appendChild(o);}})();
 function showCalc(w){['A','P','B'].forEach(x=>{document.getElementById('calc'+x).style.display=(x===w)?'block':'none';document.getElementById('tab'+x).className=(x===w)?'on':'';});}
