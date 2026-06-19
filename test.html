@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test: ¿Tu plata es Lava o Piedra? · Ahorrar es Lava</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+  :root{--bg:#f4f6fb;--card:#ffffff;--soft:#eef2f8;--txt:#1b2433;--muted:#6b7686;--accent:#ff5a1f;--accent2:#ff8c42;--green:#16a34a;--red:#e23b3b;--line:#e6eaf1;}
+  *{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  body{margin:0;background:var(--bg);color:var(--txt);line-height:1.55}
+  .wrap{max-width:720px;margin:0 auto;padding:18px}
+  header.top{text-align:center;padding:28px 0 6px}
+  header.top p{color:var(--muted);margin:8px 0 0;font-size:1.05rem}
+  .disc{background:#fff4e6;color:#9a4a00;border:1px solid #ffd9b0;border-radius:10px;padding:9px 13px;font-size:.8rem;margin:14px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin:0 0 18px;box-shadow:0 4px 14px rgba(27,36,51,.05)}
+  h2{font-size:1.3rem;margin:0 0 4px}
+  .updated{color:var(--muted);font-size:.8rem;margin:0 0 14px}
+  .qn{font-weight:600;margin:16px 0 6px}
+  .opts{display:flex;flex-wrap:wrap;gap:8px}
+  .opt{cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--txt);border-radius:20px;padding:8px 13px;font-size:.88rem}
+  button.btn{cursor:pointer;border:none;border-radius:8px;padding:12px 18px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;margin-top:16px;font-size:.95rem}
+  button.btn:hover{filter:brightness(1.05)}
+  .result{background:var(--soft);border-radius:12px;padding:20px;margin-top:18px;text-align:center}
+  .result .emo{font-size:2.6rem}
+  .result .nom{font-size:1.6rem;font-weight:800;color:var(--accent);margin:4px 0}
+  .result .lbl{color:var(--muted);font-size:.85rem}
+  .result p{text-align:left;margin:12px 0 0}
+  .hint{font-size:.78rem;color:var(--muted);margin-top:10px}
+  a.back{color:var(--accent);text-decoration:none;font-weight:600}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;padding:14px 0 30px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <svg width="300" height="60" viewBox="0 0 360 72" style="max-width:88%;height:auto" role="img" aria-label="Ahorrar es Lava">
+      <defs><linearGradient id="lavaH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8c42"/><stop offset="1" stop-color="#ff5a1f"/></linearGradient></defs>
+      <polygon points="12,60 60,60 46,30 26,30" fill="url(#lavaH)"/>
+      <polygon points="26,30 46,30 41,40 31,40" fill="#7a2f10"/>
+      <path d="M36 28 L28 14 M36 28 L44 14 M36 28 L36 8" stroke="url(#lavaH)" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <circle cx="36" cy="8" r="4.5" fill="#ffb066"/>
+      <text x="78" y="48" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif" font-size="31" font-weight="700" fill="#1b2433">Ahorrar es <tspan fill="url(#lavaH)">Lava</tspan></text>
+    </svg>
+    <p>🌋 ¿Tu plata está en modo <b>Lava</b> o modo <b>Piedra</b>?</p>
+  </header>
+  <div class="disc">6 preguntas, 1 minuto. Esto es un juego educativo, <b>no es asesoramiento de inversión</b>.</div>
+
+  <div class="card">
+    <h2>Hacé el test</h2>
+    <p class="updated">Respondé honesto y descubrí qué tan viva está tu plata.</p>
+    <div id="testQs"></div>
+    <button class="btn" onclick="verResultado()">Ver mi resultado 🔥</button>
+    <div id="testRes"></div>
+  </div>
+
+  <div class="card" style="background:linear-gradient(135deg,#fff0e8,#ffffff);border:1px solid #ffd9b0">
+    <h2>📬 Subí de Piedra a Lava</h2>
+    <p style="margin:0 0 14px">Dejá tu mail y recibí tips simples (y el resumen diario de los mercados) para que tu plata trabaje cada vez más.</p>
+    <iframe class="airtable-embed" src="https://airtable.com/embed/appOnAyaEgmg8ZMF9/pagygUyISRnfGgfqJ/form" frameborder="0" onmousewheel="" width="100%" height="533" style="background:transparent;border:1px solid var(--line);border-radius:10px"></iframe>
+  </div>
+
+  <footer><a class="back" href="index.html">← Volver a Ahorrar es Lava</a> · Esto es información, no consejo de inversión.</footer>
+</div>
+
+<script>
+const TEST=[
+ {q:"¿Qué hacés con la plata que te sobra a fin de mes?",o:[["La dejo quieta en la cuenta",0],["La gasto casi toda",0],["Ahorro una parte",2],["La pongo en algo que rinde",3]]},
+ {q:"¿Tenés algo invertido hoy (fondos, acciones, cripto, etc.)?",o:[["Nada",0],["Muy poco",1],["Algo",2],["Bastante",3]]},
+ {q:"¿Ahorrás todos los meses?",o:[["Casi nunca",0],["A veces",1],["Sí, siempre algo",3]]},
+ {q:"¿Tu plata le gana a la inflación?",o:[["Ni idea",0],["No",0],["Más o menos",2],["Sí",3]]},
+ {q:"¿Cada cuánto mirás tus finanzas?",o:[["Casi nunca",0],["De vez en cuando",1],["Cada mes",3]]},
+ {q:"¿Tenés un colchón de emergencia?",o:[["No",0],["Algo juntado",1],["Sí, 3-6 meses de gastos",3]]}
+];
+let SEL=new Array(TEST.length).fill(null);
+function pintarTest(){let h='';TEST.forEach((it,i)=>{h+='<p class="qn">'+(i+1)+'. '+it.q+'</p><div class="opts" id="qo'+i+'">';it.o.forEach(o=>{h+='<button type="button" class="opt" onclick="elegir('+i+','+o[1]+',this)">'+o[0]+'</button>';});h+='</div>';});document.getElementById('testQs').innerHTML=h;}
+function elegir(i,p,btn){SEL[i]=p;const c=document.getElementById('qo'+i);[...c.children].forEach(b=>{b.style.background='#fff';b.style.color='var(--txt)';b.style.borderColor='var(--line)';});btn.style.background='linear-gradient(135deg,var(--accent),var(--accent2))';btn.style.color='#fff';btn.style.borderColor='transparent';}
+function verResultado(){
+  if(SEL.includes(null)){alert('Respondé las 6 preguntas 🙂');return;}
+  const tot=SEL.reduce((a,b)=>a+b,0);
+  const max=TEST.reduce((a,it)=>a+Math.max(...it.o.map(o=>o[1])),0);
+  const pct=Math.round(tot/max*100);
+  let emo,nom,txt;
+  if(pct<30){emo='🪨';nom='Piedra dormida';txt='Tu plata está congelada y la inflación se la come de a poco. Primer paso: este mes apartá aunque sea el 10% de lo que ganás, antes de gastar.';}
+  else if(pct<56){emo='🪨🔥';nom='Piedra que se entibia';txt='Vas arrancando. Armá tu colchón de emergencia y empezá a poner a rendir lo que ya ahorrás — un fondo simple alcanza para empezar.';}
+  else if(pct<81){emo='🌋';nom='Lava en movimiento';txt='Tu plata ya trabaja. Próximo paso: diversificá (no pongas todo en un solo lugar) y subí de a poco tus aportes.';}
+  else{emo='🔥🌋';nom='¡Lava intensa!';txt='Tu plata está bien viva. Afiná: revisá las comisiones y pensá tu horizonte de largo plazo para exprimir el interés compuesto.';}
+  const share='https://wa.me/?text='+encodeURIComponent('Hice el test de Ahorrar es Lava y mi plata está en modo '+nom+' '+emo+'. Hacelo vos 👉 https://joaquinisolutions-sys.github.io/inversiones/test.html');
+  document.getElementById('testRes').innerHTML='<div class="result"><div class="emo">'+emo+'</div><div class="nom">'+nom+'</div><div class="lbl">Tu plata está '+pct+'/100 de viva</div><p>'+txt+'</p><p class="hint">Dejá tu mail acá abajo 👇 y te mando tips para subir tu puntaje.</p><a href="'+share+'" target="_blank" class="btn" style="display:inline-block;text-decoration:none">Compartir mi resultado por WhatsApp</a></div>';
+  document.getElementById('testRes').scrollIntoView({behavior:'smooth',block:'center'});
+}
+pintarTest();
+</script>
+</body>
+</html>
